@@ -1,0 +1,25 @@
+name: on-push
+
+on: push
+
+jobs:
+  test-on-push:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "executed"
+
+      - name: debug
+        shell: bash
+        run: |
+          set -xe
+
+          echo github context '${{ github }}'
+          env
+
+      - uses: jksy/checkout-with-reference@92292bcec253d89fe30de6ce2bf2a4dadbad8fad
+        with:
+          github_token: ${{ github.token }}
+          github_actor: ${{ github.actor }}
+          github_repository: ${{ github.repository }}
+          reference_dir: /not-exists
+          checkout_dir: .
