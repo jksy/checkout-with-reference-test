@@ -16,7 +16,7 @@ jobs:
           echo github context '${{ github }}'
           env
 
-      - uses: jksy/checkout-with-reference@2d263f2a4dc55b03c20a57c538b48e29d53b0949
+      - uses: jksy/checkout-with-reference@888c44247ffe7d51031e00ed21c05df8fb87716c
         with:
           github_token: ${{ github.token }}
           github_actor: ${{ github.actor }}
