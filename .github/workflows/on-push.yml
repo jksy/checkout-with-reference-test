@@ -8,6 +8,14 @@ jobs:
     steps:
       - run: echo "executed"
 
+      - name: debug
+        shell: bash
+        run: |
+          set -xe
+
+          echo github context '${{ github }}'
+          env
+
       - uses: jksy/checkout-with-reference@v0.4
         with:
           github_token: ${{ github.token }}
@@ -15,6 +23,3 @@ jobs:
           github_repository: ${{ github.repository }}
           reference_dir: /not-exists
           checkout_dir: .
-        timeout-minutes: 5
-
-      - run: ls -al
