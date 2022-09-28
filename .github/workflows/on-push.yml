@@ -22,5 +22,4 @@ jobs:
           github_actor: ${{ github.actor }}
           github_repository: ${{ github.repository }}
           reference_dir: /not-exists
-          branch_name: main
           checkout_dir: .
