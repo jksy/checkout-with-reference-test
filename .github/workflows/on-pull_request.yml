@@ -1,0 +1,20 @@
+name: on-pull_request
+
+on: pull_request
+
+jobs:
+  test-on-pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "executed"
+
+      - uses: jksy/checkout-with-reference@v0.4
+        with:
+          github_token: ${{ github.token }}
+          github_actor: ${{ github.actor }}
+          github_repository: ${{ github.repository }}
+          reference_dir: /not-exists
+          checkout_dir: .
+        timeout-minutes: 5
+
+      - run: ls -al
