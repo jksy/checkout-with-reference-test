@@ -16,12 +16,13 @@ jobs:
           echo github context '${{ github }}'
           env
 
-      - uses: jksy/checkout-with-reference@v0.4
+      - uses: jksy/checkout-with-reference@2d263f2a4dc55b03c20a57c538b48e29d53b0949
         with:
           github_token: ${{ github.token }}
           github_actor: ${{ github.actor }}
           github_repository: ${{ github.repository }}
           reference_dir: /not-exists
+          branch_name: main
           checkout_dir: .
 
       - run: ls -al
